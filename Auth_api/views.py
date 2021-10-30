@@ -1,6 +1,10 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.renderers import TemplateHTMLRenderer
+from .models import *
+
+
+
 
 
 class Home(APIView):
@@ -8,4 +12,11 @@ class Home(APIView):
     template_name = 'index.html'
 
     def get(self, request):
-        return Response({'hello': 'hello'})
+        data = qr.objects.all()
+
+        return Response({'hello': 'hello','UIDAI': data})
+
+
+    
+        
+
